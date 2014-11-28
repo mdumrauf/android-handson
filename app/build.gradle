@@ -23,8 +23,20 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("handson-cert.jks")
+            storePassword "wisit14"
+            keyAlias "handson"
+            keyPassword "wisit14"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
+            zipAlignEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
